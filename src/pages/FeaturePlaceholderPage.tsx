@@ -1,5 +1,5 @@
 import { ArrowBack } from '@mui/icons-material'
-import { Box, Button, Container, Stack, Typography } from '@mui/material'
+import { Button, Container, Stack, Typography } from '@mui/material'
 import { Link, useParams } from 'react-router-dom'
 
 interface FeaturePlaceholderPageProps {
@@ -16,26 +16,26 @@ function FeaturePlaceholderPage({ view }: FeaturePlaceholderPageProps) {
 
   return (
     <Container maxWidth="md" sx={{ pt: { xs: 4, sm: 5 } }}>
-        <Typography
-          component="h1"
-          variant="h4"
-          sx={{ color: '#202a35', fontWeight: 700 }}
-        >
-          {title}
+      <Typography
+        component="h1"
+        variant="h4"
+        sx={{ color: '#202a35', fontWeight: 700 }}
+      >
+        {title}
+      </Typography>
+      <Stack spacing={2} sx={{ mt: 6, alignItems: 'flex-start' }}>
+        <Typography color="text.secondary">
+          This section is ready for future development.
         </Typography>
-        <Stack spacing={2} sx={{ mt: 6, alignItems: 'flex-start' }}>
-          <Typography color="text.secondary">
-            This section is ready for future development.
-          </Typography>
-          <Button
-            component={Link}
-            to={homePath}
-            startIcon={<ArrowBack />}
-            variant="outlined"
-          >
-            Back to {view} home
-          </Button>
-        </Stack>
+        <Button
+          component={Link}
+          to={homePath}
+          startIcon={<ArrowBack />}
+          variant="outlined"
+        >
+          Back to {view} home
+        </Button>
+      </Stack>
     </Container>
   )
 }

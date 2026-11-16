@@ -3,6 +3,7 @@ import PortalLayout from './components/PortalLayout'
 import FeaturePlaceholderPage from './pages/FeaturePlaceholderPage'
 import HomePage from './pages/home/HomePage'
 import StaffHomePage from './pages/home/StaffHomePage'
+import CurrentPostingsPage from './pages/student/CurrentPostingsPage'
 import StudentHomePage from './pages/home/StudentHomePage'
 
 function App() {
@@ -13,6 +14,10 @@ function App() {
         <Route path="/student">
           <Route index element={<StudentHomePage />} />
           <Route element={<PortalLayout view="student" />}>
+            <Route
+              path="current-postings"
+              element={<CurrentPostingsPage />}
+            />
             <Route
               path=":section/*"
               element={<FeaturePlaceholderPage view="student" />}

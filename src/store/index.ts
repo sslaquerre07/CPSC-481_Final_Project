@@ -1,9 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import counterReducer from './counter/reducer'
+import jobsReducer from './jobs/reducer'
 import { loadState, saveState } from './persistence'
 
 const rootReducer = combineReducers({
-  counter: counterReducer,
+  jobs: jobsReducer,
 })
 
 export type RootState = ReturnType<typeof rootReducer>
