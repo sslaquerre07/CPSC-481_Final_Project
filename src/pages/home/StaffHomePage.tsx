@@ -1,8 +1,8 @@
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined'
 import ReportProblemOutlinedIcon from '@mui/icons-material/ReportProblemOutlined'
-import DashboardLayout from '../components/DashboardLayout'
-import NavigationTile from '../components/NavigationTile'
+import DashboardLayout from '../../components/DashboardLayout'
+import NavigationTile from '../../components/NavigationTile'
 
 function StaffHomePage() {
   return (

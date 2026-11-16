@@ -2,8 +2,8 @@ import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined'
 import FolderOpenOutlinedIcon from '@mui/icons-material/FolderOpenOutlined'
 import ReportProblemOutlinedIcon from '@mui/icons-material/ReportProblemOutlined'
 import TuneOutlinedIcon from '@mui/icons-material/TuneOutlined'
-import DashboardLayout from '../components/DashboardLayout'
-import NavigationTile from '../components/NavigationTile'
+import DashboardLayout from '../../components/DashboardLayout'
+import NavigationTile from '../../components/NavigationTile'
 
 function StudentHomePage() {
   return (

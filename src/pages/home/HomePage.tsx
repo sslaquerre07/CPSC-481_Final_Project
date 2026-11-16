@@ -1,7 +1,7 @@
 import PersonIcon from '@mui/icons-material/Person'
 import GroupsIcon from '@mui/icons-material/Groups'
-import DashboardLayout from '../components/DashboardLayout'
-import NavigationTile from '../components/NavigationTile'
+import DashboardLayout from '../../components/DashboardLayout'
+import NavigationTile from '../../components/NavigationTile'
 
 function HomePage() {
   return (
