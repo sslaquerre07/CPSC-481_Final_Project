@@ -34,6 +34,26 @@ const initialState: JobsState = {
       location: 'Edmonton',
       saved: false,
     },
+    {
+      id: 'job-f',
+      title: 'Operations Coordinator',
+      type: 'Full-Time',
+      company: 'B Co.',
+      postingDate: '2026-09-26',
+      applicationDeadline: '2026-10-31',
+      location: 'London',
+      saved: true,
+    },
+    {
+      id: 'job-g',
+      title: 'Communications Assistant',
+      type: 'Part-Time',
+      company: 'C Ltd.',
+      postingDate: '2026-09-24',
+      applicationDeadline: '2026-11-30',
+      location: 'Edmonton',
+      saved: false,
+    },
   ],
 }
 

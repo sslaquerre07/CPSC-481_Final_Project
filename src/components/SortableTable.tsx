@@ -18,6 +18,7 @@ export interface SortableTableProps<Row> {
   getRowKey: (row: Row) => Key
   firstColumn: SortableTableColumn<Row> & { linkTo: (row: Row) => string }
   columns?: readonly SortableTableColumn<Row>[]
+  maxHeight?: number | string
   actionColumn: {
     label?: string
     renderCell: (row: Row) => ReactNode
@@ -50,6 +51,7 @@ function SortableTable<Row>({
   getRowKey,
   firstColumn,
   columns = [],
+  maxHeight = 'min(55vh, 640px)',
   actionColumn,
   emptyMessage = 'No results found.',
 }: SortableTableProps<Row>) {
@@ -96,9 +98,11 @@ function SortableTable<Row>({
         borderColor: '#d5dde7',
         borderRadius: 2,
         overflowX: 'auto',
+        overflowY: 'auto',
+        maxHeight,
       }}
     >
-      <Table>
+      <Table stickyHeader>
         <TableHead>
           <TableRow sx={{ bgcolor: '#edf2f8' }}>
             {sortableColumns.map((column) => (

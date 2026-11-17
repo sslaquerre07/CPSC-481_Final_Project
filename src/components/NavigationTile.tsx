@@ -13,7 +13,10 @@ function NavigationTile({ to, icon, title, description }: NavigationTileProps) {
   return (
     <Card
       sx={{
-        aspectRatio: '1.06 / 1',
+        width: 'min(90cqw, 90cqh)',
+        aspectRatio: '1 / 1',
+        minHeight: 0,
+        boxSizing: 'border-box',
         border: '1px solid #d5dde7',
         borderRadius: 2.5,
         boxShadow: '0 2px 8px rgba(37, 58, 84, 0.06)',

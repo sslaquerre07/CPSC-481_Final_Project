@@ -73,7 +73,11 @@ function CurrentPostingsPage() {
   return (
     <Container
       maxWidth={false}
-      sx={{ px: { xs: 3, sm: 5, md: 7 }, pt: { xs: 3, sm: 4 } }}
+      sx={{
+        px: { xs: 3, sm: 5, md: 7 },
+        pt: { xs: 3, sm: 4 },
+        pb: { xs: 5, sm: 7 },
+      }}
     >
       <Typography
         component="h1"
