@@ -14,7 +14,6 @@ const navigationByView = {
     links: [
       { label: 'Postings', section: 'current-postings' },
       { label: 'Applications', section: 'current-applications' },
-      { label: 'Issue Reports', section: 'issue-reports' },
       { label: 'Settings', section: 'settings' },
     ],
   },
@@ -23,7 +22,6 @@ const navigationByView = {
     links: [
       { label: 'Drafts', section: 'drafts' },
       { label: 'Published', section: 'published-postings' },
-      { label: 'Reports', section: 'student-reports' },
     ],
   },
 } satisfies Record<

@@ -1,6 +1,5 @@
 import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined'
 import FolderOpenOutlinedIcon from '@mui/icons-material/FolderOpenOutlined'
-import ReportProblemOutlinedIcon from '@mui/icons-material/ReportProblemOutlined'
 import TuneOutlinedIcon from '@mui/icons-material/TuneOutlined'
 import DashboardLayout from '../../components/DashboardLayout'
 import NavigationTile from '../../components/NavigationTile'
@@ -19,11 +18,6 @@ function StudentHomePage() {
         icon={<FolderOpenOutlinedIcon sx={{ fontSize: 58 }} />}
         title="Current Applications"
         description="3 status updates"
-      />
-      <NavigationTile
-        to="/student/issue-reports"
-        icon={<ReportProblemOutlinedIcon sx={{ fontSize: 58 }} />}
-        title="Issue Reports"
       />
       <NavigationTile
         to="/student/settings"
