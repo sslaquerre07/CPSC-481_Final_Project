@@ -1,4 +1,6 @@
-export type JobType = 'Internship' | 'Full-Time' | 'Part-Time'
+import type { JobType } from '../../types/job'
+
+export type { JobType } from '../../types/job'
 
 export interface Job {
   id: string

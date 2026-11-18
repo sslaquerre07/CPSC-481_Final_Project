@@ -4,6 +4,7 @@ import FeaturePlaceholderPage from './pages/FeaturePlaceholderPage'
 import HomePage from './pages/home/HomePage'
 import StaffHomePage from './pages/home/StaffHomePage'
 import CurrentPostingsPage from './pages/student/CurrentPostingsPage'
+import SettingsPage from './pages/student/settings/SettingsPage'
 import StudentHomePage from './pages/home/StudentHomePage'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
               path="current-postings"
               element={<CurrentPostingsPage />}
             />
+            <Route path="settings" element={<SettingsPage />} />
             <Route
               path=":section/*"
               element={<FeaturePlaceholderPage view="student" />}

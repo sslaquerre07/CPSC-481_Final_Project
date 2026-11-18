@@ -97,13 +97,15 @@ function CurrentPostingsPage() {
           fullWidth
           size="small"
           placeholder="Search job title, company or location..."
-          inputProps={{ 'aria-label': 'Search job postings' }}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon fontSize="small" />
-              </InputAdornment>
-            ),
+          slotProps={{
+            htmlInput: { 'aria-label': 'Search job postings' },
+            input: {
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon fontSize="small" />
+                </InputAdornment>
+              ),
+            },
           }}
           sx={{ maxWidth: 560, bgcolor: 'common.white' }}
         />
