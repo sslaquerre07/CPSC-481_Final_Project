@@ -3,7 +3,8 @@ import PortalLayout from './components/PortalLayout'
 import FeaturePlaceholderPage from './pages/FeaturePlaceholderPage'
 import HomePage from './pages/home/HomePage'
 import StaffHomePage from './pages/home/StaffHomePage'
-import CurrentPostingsPage from './pages/student/CurrentPostingsPage'
+import CurrentPostingsPage from './pages/student/postings/CurrentPostingsPage'
+import JobDetailPage from './pages/student/jobs/JobDetailPage'
 import SettingsPage from './pages/student/settings/SettingsPage'
 import StudentHomePage from './pages/home/StudentHomePage'
 
@@ -15,6 +16,10 @@ function App() {
         <Route path="/student">
           <Route index element={<StudentHomePage />} />
           <Route element={<PortalLayout view="student" />}>
+            <Route
+              path="current-postings/:jobId"
+              element={<JobDetailPage />}
+            />
             <Route
               path="current-postings"
               element={<CurrentPostingsPage />}

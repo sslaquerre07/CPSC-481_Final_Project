@@ -1,68 +1,35 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createEntityAdapter, createSlice, nanoid } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import type { JobsState } from './types'
+import jobsSeed from '../../data/jobs.json'
+import type { Job } from './types'
 
-const initialState: JobsState = {
-  jobs: [
-    {
-      id: 'job-a',
-      title: 'Marketing Intern',
-      type: 'Internship',
-      company: 'A Inc.',
-      postingDate: '2026-09-30',
-      applicationDeadline: '2026-11-15',
-      location: 'Calgary',
-      saved: true,
-    },
-    {
-      id: 'job-b',
-      title: 'Operations Coordinator',
-      type: 'Full-Time',
-      company: 'B Co.',
-      postingDate: '2026-09-26',
-      applicationDeadline: '2026-10-31',
-      location: 'London',
-      saved: true,
-    },
-    {
-      id: 'job-c',
-      title: 'Communications Assistant',
-      type: 'Part-Time',
-      company: 'C Ltd.',
-      postingDate: '2026-09-24',
-      applicationDeadline: '2026-11-30',
-      location: 'Edmonton',
-      saved: false,
-    },
-    {
-      id: 'job-f',
-      title: 'Operations Coordinator',
-      type: 'Full-Time',
-      company: 'B Co.',
-      postingDate: '2026-09-26',
-      applicationDeadline: '2026-10-31',
-      location: 'London',
-      saved: true,
-    },
-    {
-      id: 'job-g',
-      title: 'Communications Assistant',
-      type: 'Part-Time',
-      company: 'C Ltd.',
-      postingDate: '2026-09-24',
-      applicationDeadline: '2026-11-30',
-      location: 'Edmonton',
-      saved: false,
-    },
-  ],
-}
+export const jobsAdapter = createEntityAdapter<Job>()
+
+const initialState = jobsAdapter.getInitialState({ schemaVersion: 2 })
 
 const jobsSlice = createSlice({
   name: 'jobs',
-  initialState,
+  initialState: jobsAdapter.setAll(initialState, jobsSeed as Job[]),
   reducers: {
+    addJob: {
+      reducer: (state, action: PayloadAction<Job>) => {
+        jobsAdapter.addOne(state, action.payload)
+      },
+      prepare: (job: Omit<Job, 'id'>) => ({
+        payload: { ...job, id: nanoid() },
+      }),
+    },
+    updateJob: (
+      state,
+      action: PayloadAction<{ id: string; changes: Partial<Omit<Job, 'id'>> }>,
+    ) => {
+      jobsAdapter.updateOne(state, action.payload)
+    },
+    removeJob: (state, action: PayloadAction<string>) => {
+      jobsAdapter.removeOne(state, action.payload)
+    },
     toggleSaved: (state, action: PayloadAction<string>) => {
-      const job = state.jobs.find(({ id }) => id === action.payload)
+      const job = state.entities[action.payload]
       if (job) {
         job.saved = !job.saved
       }
@@ -70,5 +37,5 @@ const jobsSlice = createSlice({
   },
 })
 
-export const { toggleSaved } = jobsSlice.actions
+export const { addJob, removeJob, toggleSaved, updateJob } = jobsSlice.actions
 export default jobsSlice.reducer

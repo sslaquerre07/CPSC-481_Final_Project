@@ -1,9 +1,9 @@
-import { createSelector } from '@reduxjs/toolkit'
 import type { RootState } from '../index'
+import { jobsAdapter } from './reducer'
 
-const selectJobsState = (state: RootState) => state.jobs
-
-export const selectJobs = createSelector(
-  [selectJobsState],
-  (jobsState) => jobsState.jobs,
+const jobsSelectors = jobsAdapter.getSelectors<RootState>(
+  (state) => state.jobs,
 )
+
+export const selectJobs = jobsSelectors.selectAll
+export const selectJobById = jobsSelectors.selectById

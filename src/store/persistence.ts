@@ -1,16 +1,19 @@
 const storageKey = 'cpsc-481-final-project:state'
+export const jobsStorageKey = `${storageKey}:jobs:v2`
 
 function isObject(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value)
 }
 
-export function loadState<State extends object>(): Partial<State> | undefined {
+export function loadState<State extends object>(
+  key = storageKey,
+): Partial<State> | undefined {
   if (typeof window === 'undefined') {
     return undefined
   }
 
   try {
-    const serializedState = window.localStorage.getItem(storageKey)
+    const serializedState = window.localStorage.getItem(key)
     if (serializedState === null) {
       return undefined
     }
@@ -28,13 +31,13 @@ export function loadState<State extends object>(): Partial<State> | undefined {
   }
 }
 
-export function saveState(state: object): void {
+export function saveState(state: object, key = storageKey): void {
   if (typeof window === 'undefined') {
     return
   }
 
   try {
-    window.localStorage.setItem(storageKey, JSON.stringify(state))
+    window.localStorage.setItem(key, JSON.stringify(state))
   } catch (error) {
     console.warn('Unable to save persisted Redux state.', error)
   }
