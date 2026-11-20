@@ -7,9 +7,14 @@ import { formatDate } from '../postings/utils'
 interface JobDetailHeaderProps {
   job: Job
   onToggleSaved: () => void
+  onExternalApply: () => void
 }
 
-function JobDetailHeader({ job, onToggleSaved }: JobDetailHeaderProps) {
+function JobDetailHeader({
+  job,
+  onToggleSaved,
+  onExternalApply,
+}: JobDetailHeaderProps) {
   return (
     <Stack
       direction={{ xs: 'column', sm: 'row' }}
@@ -52,6 +57,7 @@ function JobDetailHeader({ job, onToggleSaved }: JobDetailHeaderProps) {
         ) : (
           <Button
             variant="contained"
+            onClick={onExternalApply}
             sx={{ bgcolor: '#304d72', whiteSpace: 'nowrap' }}
           >
             Apply on employer site

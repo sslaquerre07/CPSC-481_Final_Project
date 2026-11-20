@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Box, Container } from '@mui/material'
 import { Navigate, useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../../store/hooks'
@@ -5,9 +6,12 @@ import { toggleSaved } from '../../../store/jobs/reducer'
 import { selectJobById } from '../../../store/jobs/selectors'
 import JobDescriptionSection from './JobDescriptionSection'
 import JobDetailHeader from './JobDetailHeader'
+import ExternalApplicationDialog from './ExternalApplicationDialog'
 import PostingDetailsSection from './PostingDetailsSection'
 
 function JobDetailPage() {
+  const [isExternalApplicationDialogOpen, setExternalApplicationDialogOpen] =
+    useState(false)
   const { jobId } = useParams()
   const job = useAppSelector((state) =>
     jobId ? selectJobById(state, jobId) : undefined,
@@ -30,6 +34,12 @@ function JobDetailPage() {
       <JobDetailHeader
         job={job}
         onToggleSaved={() => dispatch(toggleSaved(job.id))}
+        onExternalApply={() => setExternalApplicationDialogOpen(true)}
+      />
+      <ExternalApplicationDialog
+        job={job}
+        open={isExternalApplicationDialogOpen}
+        onClose={() => setExternalApplicationDialogOpen(false)}
       />
       <Box
         sx={{
