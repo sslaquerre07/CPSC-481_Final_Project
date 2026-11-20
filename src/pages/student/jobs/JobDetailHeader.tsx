@@ -1,5 +1,6 @@
 import { Bookmark, BookmarkBorder } from '@mui/icons-material'
 import { Box, Button, IconButton, Stack, Typography } from '@mui/material'
+import { Link } from 'react-router-dom'
 import type { Job } from '../../../store/jobs/types'
 import { formatDate } from '../postings/utils'
 
@@ -39,12 +40,23 @@ function JobDetailHeader({ job, onToggleSaved }: JobDetailHeaderProps) {
       </Box>
 
       <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
-        <Button
-          variant="contained"
-          sx={{ bgcolor: '#304d72', whiteSpace: 'nowrap' }}
-        >
-          {job.quickApply ? 'Apply' : 'Apply on employer site'}
-        </Button>
+        {job.quickApply ? (
+          <Button
+            component={Link}
+            to={`/student/current-postings/${job.id}/quick-apply`}
+            variant="contained"
+            sx={{ bgcolor: '#304d72', whiteSpace: 'nowrap' }}
+          >
+            Apply
+          </Button>
+        ) : (
+          <Button
+            variant="contained"
+            sx={{ bgcolor: '#304d72', whiteSpace: 'nowrap' }}
+          >
+            Apply on employer site
+          </Button>
+        )}
         <IconButton
           aria-label={job.saved ? 'Unsave job' : 'Save job'}
           onClick={onToggleSaved}

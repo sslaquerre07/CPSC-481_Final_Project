@@ -5,6 +5,7 @@ import HomePage from './pages/home/HomePage'
 import StaffHomePage from './pages/home/StaffHomePage'
 import CurrentPostingsPage from './pages/student/postings/CurrentPostingsPage'
 import JobDetailPage from './pages/student/jobs/JobDetailPage'
+import QuickApplyPage from './pages/student/quickApply/QuickApplyPage'
 import SettingsPage from './pages/student/settings/SettingsPage'
 import StudentHomePage from './pages/home/StudentHomePage'
 
@@ -16,6 +17,10 @@ function App() {
         <Route path="/student">
           <Route index element={<StudentHomePage />} />
           <Route element={<PortalLayout view="student" />}>
+            <Route
+              path="current-postings/:jobId/quick-apply"
+              element={<QuickApplyPage />}
+            />
             <Route
               path="current-postings/:jobId"
               element={<JobDetailPage />}

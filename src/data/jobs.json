@@ -23,7 +23,7 @@
       "Comfortable working collaboratively in a hybrid environment."
     ],
     "jobTags": ["Internship", "Hybrid"],
-    "requiredDocuments": ["Resume", "Cover Letter"]
+    "requiredDocuments": ["Resume", "Cover Letter", "Transcript"]
   },
   {
     "id": "job-b",
@@ -75,58 +75,6 @@
       "Attention to detail and ability to meet deadlines."
     ],
     "jobTags": ["Part-Time", "Hybrid"],
-    "requiredDocuments": ["Resume", "Cover Letter"]
-  },
-  {
-    "id": "job-f",
-    "title": "Operations Coordinator",
-    "type": "Full-Time",
-    "company": "B Co.",
-    "postingDate": "2026-09-26",
-    "applicationDeadline": "2026-10-31",
-    "location": "London",
-    "saved": true,
-    "program": "Economics",
-    "yearOfStudy": "4th",
-    "minimumPay": 22,
-    "requiresWorkPermit": true,
-    "quickApply": true,
-    "description": [
-      "Analyze business information and prepare summaries to support operational decisions.",
-      "Collaborate with stakeholders to identify trends and recommend improvements."
-    ],
-    "qualifications": [
-      "Currently enrolled in economics, business, or a related program.",
-      "Comfortable working with data and spreadsheets.",
-      "Strong analytical and communication skills."
-    ],
-    "jobTags": ["Full-Time", "Hybrid"],
-    "requiredDocuments": ["Resume", "Transcript", "Cover Letter"]
-  },
-  {
-    "id": "job-g",
-    "title": "Communications Assistant",
-    "type": "Part-Time",
-    "company": "C Ltd.",
-    "postingDate": "2026-09-24",
-    "applicationDeadline": "2026-11-30",
-    "location": "Edmonton",
-    "saved": false,
-    "program": "Communications",
-    "yearOfStudy": "2nd",
-    "minimumPay": 18,
-    "requiresWorkPermit": false,
-    "quickApply": false,
-    "description": [
-      "Create and edit communications materials for community and customer audiences.",
-      "Support the team with content planning and publishing."
-    ],
-    "qualifications": [
-      "Currently enrolled in communications or a related program.",
-      "Excellent writing and proofreading skills.",
-      "Able to manage multiple tasks and deadlines."
-    ],
-    "jobTags": ["Part-Time", "On-site"],
     "requiredDocuments": ["Resume", "Cover Letter"]
   }
 ]

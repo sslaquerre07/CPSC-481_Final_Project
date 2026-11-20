@@ -1,5 +1,5 @@
 const storageKey = 'cpsc-481-final-project:state'
-export const jobsStorageKey = `${storageKey}:jobs:v2`
+export const jobsStorageKey = `${storageKey}:jobs:v4`
 
 function isObject(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value)

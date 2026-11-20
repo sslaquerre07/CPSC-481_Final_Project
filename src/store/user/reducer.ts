@@ -22,12 +22,12 @@ const initialState: UserState = {
     },
     {
       file_title: RequiredDocument.Transcript,
-      file_name: 'SteveTranscript.pdf',
+      file_name: '',
       isCustom: false,
     },
     {
       file_title: RequiredDocument.CoverLetter,
-      file_name: 'CoverLetter.pdf',
+      file_name: '',
       isCustom: false,
     },
   ],
@@ -59,6 +59,24 @@ const userSlice = createSlice({
     },
     setJobPreferences: (state, action: PayloadAction<JobPreferences>) => {
       state.job_preferences = action.payload
+    },
+    saveRequiredDocument: (
+      state,
+      action: PayloadAction<{ file_title: RequiredDocument; file_name: string }>,
+    ) => {
+      const existingDocument = state.documents.find(
+        ({ file_title }) => file_title === action.payload.file_title,
+      )
+
+      if (existingDocument) {
+        existingDocument.file_name = action.payload.file_name
+        existingDocument.isCustom = false
+      } else {
+        state.documents.push({
+          ...action.payload,
+          isCustom: false,
+        })
+      }
     },
     updateDocument: (
       state,
@@ -129,6 +147,7 @@ function userReducer(
 export const {
   addDocument,
   removeCustomDocument,
+  saveRequiredDocument,
   setContactInfo,
   setJobPreferences,
   updateDocument,

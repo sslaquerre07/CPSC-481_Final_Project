@@ -16,7 +16,7 @@ const persistedJobs = loadState<JobsState>(jobsStorageKey)
 const isValidPersistedJobs = (
   state: Partial<JobsState> | undefined,
 ): state is JobsState =>
-  state?.schemaVersion === 2 &&
+  state?.schemaVersion === 4 &&
   Array.isArray(state.ids) &&
   typeof state.entities === 'object' &&
   state.entities !== null

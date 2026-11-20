@@ -5,7 +5,7 @@ import type { Job } from './types'
 
 export const jobsAdapter = createEntityAdapter<Job>()
 
-const initialState = jobsAdapter.getInitialState({ schemaVersion: 2 })
+const initialState = jobsAdapter.getInitialState({ schemaVersion: 4 })
 
 const jobsSlice = createSlice({
   name: 'jobs',
